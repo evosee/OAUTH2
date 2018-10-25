@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
 public class WebSecretConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     @Bean
