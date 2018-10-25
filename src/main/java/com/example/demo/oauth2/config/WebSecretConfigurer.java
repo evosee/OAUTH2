@@ -16,7 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecretConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     @Bean
-    @Primary
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
@@ -39,7 +38,7 @@ public class WebSecretConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder()).withUser("test").password(passwordEncoder().encode("test")).roles("user")
-                .and().withUser("admin").password(passwordEncoder().encode("admin")).roles("admin");
+        auth.inMemoryAuthentication().withUser("test").password("test").roles("user")
+                .and().withUser("admin").password("admin").roles("admin");
     }
 }
